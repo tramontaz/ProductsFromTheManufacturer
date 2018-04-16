@@ -17,33 +17,44 @@ public class Main {
   private static Logger logger = LoggerFactory.getLogger(Main.class);
 
       public static void main(String[] args) {
+          hebernateTest();
+    }
+
+    private static void hebernateTest() {
         ManufacturerDAO manufacturerDAO = new HibernateManufacturerDAOImpl();
         ProductDAO productDAO = new HibernateProductDAOImpl();
 
-        Manufacturer abus = new Manufacturer();
-        abus.setName("Abus");
+//        Manufacturer abus = new Manufacturer();
+//        abus.setName("Abus");
+//
+//        Product lock = new Product();
+//        lock.setName("Abus Lock");
+//        lock.setPrice(new BigDecimal(12000));
+//        lock.setManufacturer(abus);
+//        System.out.println("product: " + lock);
+//
+//        Product chain = new Product();
+//        chain.setName("Abus Chain");
+//        chain.setPrice(new BigDecimal(18000));
+//        chain.setManufacturer(abus);
+//        System.out.println("product: " + chain);
+//
+//        Set<Product> products = new HashSet<>();
+//        products.add(lock);
+//        products.add(chain);
+//
+//        abus.setProducts(products);
+//        System.out.println("manufacturer: " + abus);
+//
+//        manufacturerDAO.add(abus);
+//        logger.info("manufacturer successful added.");
 
-        Product lock = new Product();
-        lock.setName("Abus Lock");
-        lock.setPrice(new BigDecimal(12000));
-        lock.setManufacturer(abus);
-        System.out.println("product: " + lock);
 
-        Product chain = new Product();
-        chain.setName("Abus Chain");
-        chain.setPrice(new BigDecimal(18000));
-        chain.setManufacturer(abus);
-        System.out.println("product: " + chain);
+        manufacturerDAO.delete(6L);
 
-        Set<Product> products = new HashSet<>();
-        products.add(lock);
-        products.add(chain);
-
-        abus.setProducts(products);
-        System.out.println("manufacturer: " + abus);
-
-        manufacturerDAO.add(abus);
-        logger.info("manufacturer successful added.");
-
+        Manufacturer man = manufacturerDAO.getById(6L);
+        System.out.println("Manufacturer id: " + man.getId() + "\n" +
+                "Manufacturer name: " + man.getName() + "\n" +
+                "manufacturer's products: " + man.getProducts() + "\n");
     }
 }

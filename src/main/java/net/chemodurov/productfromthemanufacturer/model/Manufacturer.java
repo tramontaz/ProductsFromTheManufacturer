@@ -15,7 +15,7 @@ public class Manufacturer {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "manufacturer", fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = Product.class, mappedBy = "manufacturer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Product> products = new HashSet<>();
 
     public long getId() {

@@ -12,13 +12,13 @@ public class HibernateProductDAOImpl implements ProductDAO {
 
     public void add(Product entity) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
-        session.persist(entity);
+        session.save(entity);
         session.close();
     }
 
     public Product getById(Long id) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
-        Product product = (Product) session.get(Product.class, id);
+        Product product = session.get(Product.class, id);
         session.close();
         return product;
     }
@@ -34,7 +34,7 @@ public class HibernateProductDAOImpl implements ProductDAO {
     public void delete(Long id) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        Product product = (Product) session.get(Product.class, id);
+        Product product = session.get(Product.class, id);
         session.delete(product);
         session.flush();
         session.close();

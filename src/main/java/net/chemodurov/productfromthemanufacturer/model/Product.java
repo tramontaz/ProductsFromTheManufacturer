@@ -17,7 +17,7 @@ public class Product {
     @Column(name = "price")
     private BigDecimal price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "manufacturer_id")
     private Manufacturer manufacturer;
 
@@ -51,15 +51,5 @@ public class Product {
 
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", manufacturer name: " + manufacturer.getName() +
-                '}';
     }
 }
