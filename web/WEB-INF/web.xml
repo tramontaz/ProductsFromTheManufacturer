@@ -11,6 +11,10 @@
         <servlet-name>RegistrationServlet</servlet-name>
         <servlet-class>net.chemodurov.productfromthemanufacturer.controller.RegistrationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManufacturerServlet</servlet-name>
+        <servlet-class>net.chemodurov.productfromthemanufacturer.controller.ManufacturerServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -19,5 +23,9 @@
     <servlet-mapping>
         <servlet-name>RegistrationServlet</servlet-name>
         <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManufacturerServlet</servlet-name>
+        <url-pattern>/manufacturers</url-pattern>
     </servlet-mapping>
 </web-app>

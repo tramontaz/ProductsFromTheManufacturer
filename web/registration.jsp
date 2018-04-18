@@ -11,12 +11,12 @@
     <title>Registration</title>
 </head>
 <body>
-<form class="register-form">
+<form action= "${pageContext.request.contextPath}/registration">
     <input type="text" placeholder="name"/>
     <input type="password" placeholder="password"/>
     <input type="text" placeholder="email address"/>
     <button>create</button>
-    <p class="message">Already registered? <a href="#">Sign In</a></p>
+    <p class="message">Already registered? <a href="index.jsp">Sign In</a></p>
 </form>
 </body>
 </html>

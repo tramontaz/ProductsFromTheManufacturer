@@ -1,9 +1,6 @@
 package net.chemodurov.productfromthemanufacturer;
 
-import net.chemodurov.productfromthemanufacturer.dao.HibernateManufacturerDAOImpl;
-import net.chemodurov.productfromthemanufacturer.dao.HibernateProductDAOImpl;
-import net.chemodurov.productfromthemanufacturer.dao.ManufacturerDAO;
-import net.chemodurov.productfromthemanufacturer.dao.ProductDAO;
+import net.chemodurov.productfromthemanufacturer.dao.*;
 import net.chemodurov.productfromthemanufacturer.model.Manufacturer;
 import net.chemodurov.productfromthemanufacturer.model.Product;
 import org.slf4j.Logger;
@@ -17,10 +14,12 @@ public class Main {
   private static Logger logger = LoggerFactory.getLogger(Main.class);
 
       public static void main(String[] args) {
-          hebernateTest();
+          UserDAO userDAO = new HibernateUserDAOImpl();
+          System.out.println(userDAO.validate("user", "password"));
+          HibernateSessionFactory.shutdown();
     }
 
-    private static void hebernateTest() {
+    private static void hibernateTest() {
         ManufacturerDAO manufacturerDAO = new HibernateManufacturerDAOImpl();
         ProductDAO productDAO = new HibernateProductDAOImpl();
 
