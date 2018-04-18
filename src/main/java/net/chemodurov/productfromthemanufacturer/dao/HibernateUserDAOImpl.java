@@ -2,12 +2,15 @@ package net.chemodurov.productfromthemanufacturer.dao;
 
 import net.chemodurov.productfromthemanufacturer.model.User;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class HibernateUserDAOImpl implements UserDAO {
+
     @Override
     public void add(User entity) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();

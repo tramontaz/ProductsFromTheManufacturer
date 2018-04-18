@@ -31,9 +31,4 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             rs.include(request, response);
         }
     }
-
-    @Override
-    public void init() throws ServletException {
-        super.init();
-    }
 }
