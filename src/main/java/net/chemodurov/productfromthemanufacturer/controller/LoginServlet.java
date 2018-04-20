@@ -4,7 +4,6 @@ import net.chemodurov.productfromthemanufacturer.dao.HibernateUserDAOImpl;
 import net.chemodurov.productfromthemanufacturer.dao.UserDAO;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 

@@ -16,7 +16,7 @@ public class Manufacturer {
     private String name;
 
     @OneToMany(targetEntity = Product.class, mappedBy = "manufacturer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Product> products = new HashSet<>();
+    private Set<Product> products = new HashSet<Product>();
 
     public long getId() {
         return id;

@@ -4,15 +4,12 @@ import net.chemodurov.productfromthemanufacturer.dao.*;
 import net.chemodurov.productfromthemanufacturer.model.Manufacturer;
 import net.chemodurov.productfromthemanufacturer.model.Product;
 import net.chemodurov.productfromthemanufacturer.model.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Main {
-  private static Logger logger = LoggerFactory.getLogger(Main.class);
 
       public static void main(String[] args) {
           userDAOTest();

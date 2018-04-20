@@ -2,8 +2,6 @@ package net.chemodurov.productfromthemanufacturer.dao;
 
 import net.chemodurov.productfromthemanufacturer.model.Manufacturer;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import java.util.HashSet;
 import java.util.Set;
