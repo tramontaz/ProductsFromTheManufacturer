@@ -6,6 +6,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.sql.DriverManager;
+
 public class HibernateSessionFactory {
     private static StandardServiceRegistry registry;
     private static SessionFactory sessionFactory;
@@ -14,6 +16,7 @@ public class HibernateSessionFactory {
         if (sessionFactory == null) {
             try {
                 // Create registry
+                DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
                 registry = new StandardServiceRegistryBuilder()
                         .configure()
                         .build();

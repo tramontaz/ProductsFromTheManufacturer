@@ -11,10 +11,33 @@ import java.util.Set;
 
 public class Main {
 
-      public static void main(String[] args) {
-          userDAOTest();
+    public static void main(String[] args) {
+        ManufacturerDAO manufacturerDAO = new HibernateManufacturerDAOImpl();
 
-      }
+        Manufacturer abus = new Manufacturer();
+        abus.setName("Abus");
+
+        Product lock = new Product();
+        lock.setName("Abus Lock");
+        lock.setPrice(new BigDecimal(12000));
+        lock.setManufacturer(abus);
+        System.out.println("product: " + lock);
+
+        Product chain = new Product();
+        chain.setName("Abus Chain");
+        chain.setPrice(new BigDecimal(18000));
+        chain.setManufacturer(abus);
+        System.out.println("product: " + chain);
+
+        Set<Product> products = new HashSet<>();
+        products.add(lock);
+        products.add(chain);
+
+        abus.setProducts(products);
+
+        manufacturerDAO.add(abus);
+
+    }
 
     private static void userDAOTest() {
         UserDAO userDAO = new HibernateUserDAOImpl();
@@ -25,6 +48,7 @@ public class Main {
         user.setPassword("password");
         userDAO.add(user);
         System.out.println(userDAO.validate("user", "password"));
+        HibernateSessionFactory.shutdown();
     }
 
     private static void hibernateTest() {

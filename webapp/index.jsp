@@ -11,7 +11,7 @@
     <title>Login page</title>
 </head>
 <body>
-        <form action="${pageContext.request.contextPath}/login" method="POST">
+        <form action="${pageContext.request.contextPath}login" method="POST">
             <input type="text" placeholder="name" name = "name"/>
             <input type="password" placeholder="password" name="password"/>
             <button>login</button>
