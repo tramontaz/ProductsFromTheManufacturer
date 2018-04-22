@@ -13,11 +13,11 @@
 </head>
 <body>
 <div style="text-align: center;">
-    <h1>Products</h1>
+    <h1>Products of ${manufacturer_name}</h1>
     <h2>
-        <a href="/new">Add New Product</a>
+        <a href="/products?action=new&manufacturer_id=${manufacturer_id}">Add New Product</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="/manufacturers">Manufacturers</a>
+        <a href="/manufacturers?action=list">Manufacturers</a>
     </h2>
 </div>
 <div align="center">
@@ -35,9 +35,9 @@
                 <td><c:out value="${product.name}" /></td>
                 <td><c:out value="${product.price}" /></td>
                 <td>
-                    <a href="/edit?id=<c:out value='${product.id}' />">Edit</a>
+                    <a href="/products?action=edit&id=<c:out value='${product.id}' />">Edit</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="/delete?id=<c:out value='${product.id}' />">Delete</a>
+                    <a href="/products?action=delete&manufacturer_id=${manufacturer_id}&id=<c:out value='${product.id}' />">Delete</a>
                 </td>
             </tr>
         </c:forEach>

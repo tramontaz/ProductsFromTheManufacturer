@@ -34,7 +34,7 @@
             <tr>
                 <td><c:out value="${manufacturer.id}" /></td>
                 <td><c:out value="${manufacturer.name}" /></td>
-                <td><a href="/products?id=<c:out value='${manufacturer.id}'/>">Products</a></td>
+                <td><a href="/products?action=list&id=<c:out value='${manufacturer.id}'/>">Products</a></td>
                 <td>
                     <a href="/manufacturers?action=edit&id=<c:out value='${manufacturer.id}' />">Edit</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;

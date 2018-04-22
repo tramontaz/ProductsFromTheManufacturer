@@ -7,35 +7,54 @@ import net.chemodurov.productfromthemanufacturer.model.User;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Main {
 
     public static void main(String[] args) {
         ManufacturerDAO manufacturerDAO = new HibernateManufacturerDAOImpl();
+//
+//        Manufacturer albatros = new Manufacturer();
+//        albatros.setName("Albatros");
+//
+//        Product albatrosLock = new Product();
+//        albatrosLock.setName("Albatros Lock");
+//        albatrosLock.setPrice(new BigDecimal(2000));
+//        albatrosLock.setManufacturer(albatros);
+//        System.out.println("product: " + albatrosLock);
+//
+//        Product albatrosChain = new Product();
+//        albatrosChain.setName("Albatros Chain");
+//        albatrosChain.setPrice(new BigDecimal(8000));
+//        albatrosChain.setManufacturer(albatros);
+//        System.out.println("product: " + albatrosChain);
+//
+//        Set<Product> albatrosProducts = new HashSet<>();
+//        albatrosProducts.add(albatrosLock);
+//        albatrosProducts.add(albatrosChain);
+//
+//        albatros.setProducts(albatrosProducts);
+//
+//        manufacturerDAO.add(albatros);
 
-        Manufacturer albatros = new Manufacturer();
-        albatros.setName("Albatros");
 
-        Product albatrosLock = new Product();
-        albatrosLock.setName("Albatros Lock");
-        albatrosLock.setPrice(new BigDecimal(2000));
-        albatrosLock.setManufacturer(albatros);
-        System.out.println("product: " + albatrosLock);
+//        ProductDAO productDAO = new HibernateProductDAOImpl();
+//        Manufacturer manufacturer = manufacturerDAO.getById(11L);
+//
+//        Iterator<Product> i = manufacturer.getProducts().iterator();
+//        while(i.hasNext()){
+//            Product product = i.next();
+//            for (Iterator<Product> it = manufacturer.getProducts().iterator()) {
+//                if (product.getId() == it.next().getId()) {
+//                    it.remove(); // this removes the child from the underlying collection
+//                }
+//            }
+//        }
+//        for (Product product : manufacturerDAO.getById(11L).getProducts()) {
+//            System.out.println(product.getName());
+//        }
 
-        Product albatrosChain = new Product();
-        albatrosChain.setName("Albatros Chain");
-        albatrosChain.setPrice(new BigDecimal(8000));
-        albatrosChain.setManufacturer(albatros);
-        System.out.println("product: " + albatrosChain);
-
-        Set<Product> albatrosProducts = new HashSet<>();
-        albatrosProducts.add(albatrosLock);
-        albatrosProducts.add(albatrosChain);
-
-        albatros.setProducts(albatrosProducts);
-
-        manufacturerDAO.add(albatros);
 
     }
 

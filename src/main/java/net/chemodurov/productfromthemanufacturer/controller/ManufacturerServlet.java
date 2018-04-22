@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.HashSet;
 
 public class ManufacturerServlet extends HttpServlet {
@@ -46,7 +45,7 @@ public class ManufacturerServlet extends HttpServlet {
                 showEditForm(request, response);
                 break;
             case "update":
-                updateBook(request, response);
+                updateManufacturer(request, response);
                 break;
             default:
                 listManufacturers(request, response);
@@ -54,7 +53,7 @@ public class ManufacturerServlet extends HttpServlet {
         }
     }
 
-    private void updateBook(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void updateManufacturer(HttpServletRequest request, HttpServletResponse response) throws IOException {
         long id = Long.parseLong(request.getParameter("id"));
         String name = request.getParameter("name");
 
@@ -62,7 +61,7 @@ public class ManufacturerServlet extends HttpServlet {
         manufacturer.setId(id);
         manufacturer.setName(name);
         manufacturerDAO.update(manufacturer);
-        response.sendRedirect("list");
+        response.sendRedirect("/manufacturers?action=list");
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -71,7 +70,7 @@ public class ManufacturerServlet extends HttpServlet {
         out.println(id);
         Manufacturer manufacturer = manufacturerDAO.getById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("manufacturer.jsp");
-        request.setAttribute("book", manufacturer);
+        request.setAttribute("manufacturer", manufacturer);
         dispatcher.forward(request, response);
     }
 
