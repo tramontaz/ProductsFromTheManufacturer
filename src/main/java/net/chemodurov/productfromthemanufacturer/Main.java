@@ -14,28 +14,28 @@ public class Main {
     public static void main(String[] args) {
         ManufacturerDAO manufacturerDAO = new HibernateManufacturerDAOImpl();
 
-        Manufacturer abus = new Manufacturer();
-        abus.setName("Abus");
+        Manufacturer albatros = new Manufacturer();
+        albatros.setName("Albatros");
 
-        Product lock = new Product();
-        lock.setName("Abus Lock");
-        lock.setPrice(new BigDecimal(12000));
-        lock.setManufacturer(abus);
-        System.out.println("product: " + lock);
+        Product albatrosLock = new Product();
+        albatrosLock.setName("Albatros Lock");
+        albatrosLock.setPrice(new BigDecimal(2000));
+        albatrosLock.setManufacturer(albatros);
+        System.out.println("product: " + albatrosLock);
 
-        Product chain = new Product();
-        chain.setName("Abus Chain");
-        chain.setPrice(new BigDecimal(18000));
-        chain.setManufacturer(abus);
-        System.out.println("product: " + chain);
+        Product albatrosChain = new Product();
+        albatrosChain.setName("Albatros Chain");
+        albatrosChain.setPrice(new BigDecimal(8000));
+        albatrosChain.setManufacturer(albatros);
+        System.out.println("product: " + albatrosChain);
 
-        Set<Product> products = new HashSet<>();
-        products.add(lock);
-        products.add(chain);
+        Set<Product> albatrosProducts = new HashSet<>();
+        albatrosProducts.add(albatrosLock);
+        albatrosProducts.add(albatrosChain);
 
-        abus.setProducts(products);
+        albatros.setProducts(albatrosProducts);
 
-        manufacturerDAO.add(abus);
+        manufacturerDAO.add(albatros);
 
     }
 

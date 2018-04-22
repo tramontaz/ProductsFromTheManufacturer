@@ -21,7 +21,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         String password = request.getParameter("password");
 
         if (userDAO.validate(username, password)) {
-            RequestDispatcher rs = request.getRequestDispatcher("/manufacturers");
+            RequestDispatcher rs = request.getRequestDispatcher("/manufacturers?action=list");
             rs.forward(request, response);
         }
         else {
