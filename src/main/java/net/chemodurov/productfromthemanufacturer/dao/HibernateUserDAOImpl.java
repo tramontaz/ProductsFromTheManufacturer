@@ -65,4 +65,14 @@ public class HibernateUserDAOImpl implements UserDAO {
         session.close();
         return result;
     }
+
+    @Override
+    public boolean checkName(String name) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        Query query = session.createQuery("from User where name=:username");
+        query.setParameter("username", name);
+        boolean result = !query.list().isEmpty();
+        session.close();
+        return result;
+    }
 }

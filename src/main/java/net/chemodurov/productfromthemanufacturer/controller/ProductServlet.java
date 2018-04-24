@@ -63,21 +63,26 @@ public class ProductServlet extends HttpServlet {
         long id = Long.parseLong(request.getParameter("id"));
         String name = request.getParameter("name");
         BigDecimal price = new BigDecimal(request.getParameter("price"));
+        long manufacturer_id = Long.parseLong(request.getParameter("manufacturer_id"));
+        Manufacturer manufacturer = manufacturerDAO.getById(manufacturer_id);
 
         Product product = new Product();
         product.setId(id);
         product.setName(name);
         product.setPrice(price);
+        product.setManufacturer(manufacturer);
 
         productDAO.update(product);
-        response.sendRedirect("/products?action=list");
+        response.sendRedirect("/products?action=list&id=" + manufacturer_id);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         long id = Long.parseLong(request.getParameter("id"));
+        long manufacturer_id = Long.parseLong(request.getParameter("manufacturer_id"));
         Product product = productDAO.getById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("product.jsp");
         request.setAttribute("product", product);
+        request.setAttribute("manufacturer_id", manufacturer_id);
         dispatcher.forward(request, response);
     }
 
@@ -85,6 +90,7 @@ public class ProductServlet extends HttpServlet {
         long manufacturer_id = Long.parseLong(request.getParameter("manufacturer_id"));
         long id = Long.parseLong(request.getParameter("id"));
         productDAO.delete(id);
+        request.setAttribute("manufacturer_id", manufacturer_id);
         response.sendRedirect("/products?action=list&id=" + manufacturer_id);
     }
 
@@ -97,6 +103,7 @@ public class ProductServlet extends HttpServlet {
         newProduct.setPrice(price);
         newProduct.setManufacturer(manufacturerDAO.getById(manufacturer_id));
         productDAO.add(newProduct);
+        request.setAttribute("manufacturer_id", manufacturer_id);
         response.sendRedirect("/products?action=list&id=" + manufacturer_id + "&manufacturer_name=" + manufacturerDAO.getById(manufacturer_id).getName());
     }
 
