@@ -14,6 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         ManufacturerDAO manufacturerDAO = new HibernateManufacturerDAOImpl();
+        ProductDAO productDAO = new HibernateProductDAOImpl();
 //
 //        Manufacturer albatros = new Manufacturer();
 //        albatros.setName("Albatros");
@@ -38,22 +39,47 @@ public class Main {
 //
 //        manufacturerDAO.add(albatros);
 
-
-//        ProductDAO productDAO = new HibernateProductDAOImpl();
-//        Manufacturer manufacturer = manufacturerDAO.getById(11L);
-//
-//        Iterator<Product> i = manufacturer.getProducts().iterator();
-//        while(i.hasNext()){
-//            Product product = i.next();
-//            for (Iterator<Product> it = manufacturer.getProducts().iterator()) {
-//                if (product.getId() == it.next().getId()) {
-//                    it.remove(); // this removes the child from the underlying collection
-//                }
-//            }
-//        }
-//        for (Product product : manufacturerDAO.getById(11L).getProducts()) {
+//        for (Product product : manufacturerDAO.getById(12L).getProducts()) {
 //            System.out.println(product.getName());
 //        }
+//
+//        Set<Product> products = manufacturerDAO.getById(12L).getProducts();
+//        Iterator<Product> iterator = products.iterator();
+//        while (iterator.hasNext()) {
+//            Product element = iterator.next();
+//            if (element.getId() == 11L) {
+//                iterator.remove();
+//            }
+//        }
+//        manufacturerDAO.getById(12L).setProducts(products);
+//
+//        for (Product product : products) {
+//            System.out.println(product.getName());
+//        }
+//
+//        Manufacturer fakeManuf = new Manufacturer();
+//        fakeManuf.setName("fake");
+//
+//        Product ppp = new Product();
+//        ppp.setName("PPP");
+//        ppp.setPrice(new BigDecimal(1000));
+//        ppp.setManufacturer(fakeManuf);
+//
+//        Product zzz = new Product();
+//        zzz.setName("ZZZ");
+//        zzz.setPrice(new BigDecimal(100));
+//        zzz.setManufacturer(fakeManuf);
+//
+//        Set<Product> fakeProd = new HashSet<>();
+//        fakeProd.add(ppp);
+//        fakeProd.add(zzz);
+//
+//        fakeManuf.setProducts(fakeProd);
+//        manufacturerDAO.add(fakeManuf);
+
+        Product delProd = productDAO.getById(15L);
+        productDAO.delete(15L);
+//        manufacturerDAO.getById(14L).getProducts().remove(delProd);
 
 
     }

@@ -83,15 +83,8 @@ public class ProductServlet extends HttpServlet {
 
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
         long manufacturer_id = Long.parseLong(request.getParameter("manufacturer_id"));
-        HashSet<Product> products = new HashSet<>(manufacturerDAO.getById(manufacturer_id).getProducts());
         long id = Long.parseLong(request.getParameter("id"));
-        for (Product product : products) {
-            if (product.getId() == id) {
-                products.remove(product);
-            }
-        }
         productDAO.delete(id);
-        manufacturerDAO.getById(manufacturer_id).setProducts(products);
         response.sendRedirect("/products?action=list&id=" + manufacturer_id);
     }
 

@@ -2,6 +2,7 @@ package net.chemodurov.productfromthemanufacturer.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 @Table(name = "products")
@@ -51,5 +52,32 @@ public class Product {
 
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return getId() == product.getId() &&
+                Objects.equals(getName(), product.getName()) &&
+                Objects.equals(getPrice(), product.getPrice()) &&
+                Objects.equals(getManufacturer(), product.getManufacturer());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId(), getName(), getPrice(), getManufacturer());
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", manufacturer's name=" + manufacturer.getName() +
+                '}';
     }
 }
